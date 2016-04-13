@@ -1,12 +1,14 @@
 module.exports = {
 	run(creep) {
-        if(creep.carry.energy < creep.carryCapacity && creep.memory.working == true) {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0]);
+        if(creep.carry.energy == 0) {
+            if (Game.spawns.Spawn1.energy >= 150)
+            {
+                if (Game.spawns.Spawn1.transferEnergy(creep) == ERR_NOT_IN_RANGE)
+                {
+                    creep.moveTo(Game.spawns.Spawn1);
+                }
             }
-        }
-        else {
+        }else {
             if (creep.carry.energy > 0) {
                 creep.memory.working = false;
                 if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
