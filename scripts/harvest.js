@@ -10,7 +10,7 @@ module.exports = {
             var storage = creep.pos.findClosestByRange(FIND_STRUCTURES, 1,
                 {
                     filter: {
-                        structureType: STRUCTURE_CONTAINER, function(structure) {
+                        structureType: STRUCTURE_CONTAINER, STRUCTURE_SPAWN, function(structure) {
                             return _.sum(structure.store) < structure.store;
                         }
                     }
