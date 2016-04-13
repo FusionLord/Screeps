@@ -8,6 +8,9 @@ module.exports = {
                     creep.moveTo(Game.spawns.Spawn1);
                 }
             }
+            else{
+                harvester.run(creep);
+            }
         }else {
             if (creep.carry.energy > 0) {
                 creep.memory.working = false;
