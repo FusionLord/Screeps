@@ -1,7 +1,7 @@
 var harvester = require("harvest");
 module.exports = {
     run(creep) {
-    	if(creep.carry.energy < creep.carryCapacity) {
+    	if(creep.carry.energy < creep.carryCapacity && !creep.memory.working) {
     		if (Game.spawns.Spawn1.energy >= 150)
     		{
 				if (Game.spawns.Spawn1.transferEnergy(creep) == ERR_NOT_IN_RANGE)
@@ -15,10 +15,13 @@ module.exports = {
             }
     	}
     	else {
-    		var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
-            if ( creep.build(target) == ERR_NOT_IN_RANGE )
-            {
-                creep.moveTo(target);
+            creep.memory.working = true;
+            if (creep.carry == 0) { creep.memory.working = true; }
+            else {
+                var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+                if (creep.build(target) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target);
+                }
             }
     	}
     }
