@@ -1,3 +1,4 @@
+var harvester = require("harvest");
 module.exports = {
     run(creep) {
     	if(creep.carry.energy == 0) {
@@ -8,6 +9,10 @@ module.exports = {
 					creep.moveTo(Game.spawns.Spawn1);
 				}
     	    }
+            else
+            {
+                harvester.run(creep);
+            }
     	}
     	else {
     		var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
