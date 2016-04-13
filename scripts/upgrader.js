@@ -1,7 +1,7 @@
 var harvester = require('harvest');
 module.exports = {
 	run(creep) {
-        if(creep.carry.energy < creep.carryCapacity) {
+        if(creep.carry.energy < creep.carryCapacity && !creep.memory.working) {
             if (Game.spawns.Spawn1.energy > 200)
             {
                 if (Game.spawns.Spawn1.transferEnergy(creep) == ERR_NOT_IN_RANGE)
