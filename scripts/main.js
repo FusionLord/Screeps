@@ -7,11 +7,11 @@ module.exports.loop = function () {
 	populate.run();
     for (var name in Game.creeps) {
         var harvesterCount = _.filter(Game.creeps, function (creep) {
-            return creep.name.startsWith('Harvester') && creep.ticksToLive > 12;
+            return creep.memory.role == 'Harvester' && creep.ticksToLive > 12;
         }).length;
         var creep = Game.creeps[name];
-    	if (name.startsWith("Harvester") || (harvesterCount < 1)) { harvester.run(creep); }
-    	else if (name.startsWith("Upgrader")) { upgrader.run(creep); }
-    	else if (name.startsWith("Builder")) { builder.run(creep); }
+    	if (creep.memory.role == 'Harvester' || (harvesterCount < 1)) { harvester.run(creep); }
+    	else if (creep.memory.role == 'Upgrader') { upgrader.run(creep); }
+    	else if (creep.memory.role == 'Builder') { builder.run(creep); }
     }
 };
