@@ -11,7 +11,7 @@ module.exports = {
                 Memory.harvestersCount = Memory.harvestersCount + 1;
                 spawn.createCreep([WORK, CARRY, MOVE], 'Harvester' + Memory.harvestersCount);
             }
-            if (count >= 5) {
+            else {
                 count = _.filter(Game.creeps, function (creep) {
                     return creep.name.startsWith('Builder') && creep.ticksToLive > 12;
                 }).length;
@@ -19,7 +19,7 @@ module.exports = {
                     Memory.buildersCount = Memory.buildersCount + 1;
                     spawn.createCreep([WORK, CARRY, MOVE], 'Builder' + Memory.buildersCount);
                 }
-                if (count >= 5) {
+                else {
                     count = _.filter(Game.creeps, function (creep) {
                         return creep.name.startsWith('Upgrader') && creep.ticksToLive > 12;
                     }).length;
