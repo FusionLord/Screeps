@@ -11,7 +11,7 @@ module.exports.loop = function () {
         }).length;
         var creep = Game.creeps[name];
     	if (name.startsWith("Harvester") || (harvesterCount < 1)) { harvester.run(creep); }
-    	if (name.startsWith("Upgrader")) { upgrader.run(creep); }
-    	if (name.startsWith("Builder")) { builder.run(creep); }
+    	else if (name.startsWith("Upgrader")) { upgrader.run(creep); }
+    	else if (name.startsWith("Builder")) { builder.run(creep); }
     }
 };
