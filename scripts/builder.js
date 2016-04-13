@@ -1,7 +1,7 @@
 module.exports = {
     run(creep) {
     	if(creep.carry.energy == 0) {
-    		if (Game.spawns.Spawn1.energy > 150)
+    		if (Game.spawns.Spawn1.energy >= 150)
     		{
 				if (Game.spawns.Spawn1.transferEnergy(creep) == ERR_NOT_IN_RANGE)
 				{
@@ -10,11 +10,11 @@ module.exports = {
     	    }
     	}
     	else {
-    		var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+    		var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
     		if(targets.length) {
-    		    if ( creep.build(targets[0]) == ERR_NOT_IN_RANGE )
+    		    if ( creep.build(target[0]) == ERR_NOT_IN_RANGE )
     		    {
-    			    creep.moveTo(targets[0]);
+    			    creep.moveTo(target[0]);
     		    }
     		}
     	}
