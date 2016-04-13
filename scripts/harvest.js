@@ -15,8 +15,8 @@ module.exports = {
                         }
                     }
                 });
-            if (creep.transfer(storage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(storage);
+            if (creep.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.spawns.Spawn1);
             }
         }
     }
