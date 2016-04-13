@@ -15,7 +15,7 @@ module.exports = {
                     return creep.memory.role == 'Builder' && creep.ticksToLive > 12;
                 }).length;
                 if (count < 3) {
-                    spawn.createDrone('builder');
+                    spawn.createDrone('Builder');
                 }
                 else {
                     count = _.filter(Game.creeps, function (creep) {
