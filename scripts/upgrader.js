@@ -13,14 +13,12 @@ module.exports = {
                 harvester.run(creep);
             }
         }else {
-            if (creep.carry.energy > 0) {
-                creep.memory.working = false;
+            if (creep.carry.energy == 0) { creep.memory.working = false; }
+            else {
+                creep.memory.working = true;
                 if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller);
                 }
-            }
-            else {
-                creep.memory.working = true;
             }
         }
 	}

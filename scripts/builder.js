@@ -15,9 +15,9 @@ module.exports = {
             }
     	}
     	else {
-            creep.memory.working = true;
             if (creep.carry.energy == 0) { creep.memory.working = false; }
             else {
+                creep.memory.working = true;
                 var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
                 if (creep.build(target) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target);
