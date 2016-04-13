@@ -1,7 +1,7 @@
 module.exports = {
     run(creep) {
         if(creep.carry.energy < creep.carryCapacity) {
-            var source = creep.room.findClosestByRange(FIND_SOURCES);
+            var source = creep.room.findNearest(SOURCES);
             if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(source);
             }
