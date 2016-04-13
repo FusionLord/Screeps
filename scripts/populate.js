@@ -21,7 +21,7 @@ module.exports = {
                     count = _.filter(Game.creeps, function (creep) {
                         return creep.memory.role == 'Upgrader' && creep.ticksToLive > 12;
                     }).length;
-                    if (count < 3) {
+                    if (count < 2) {
                         spawn.createDrone("Upgrader");
                     }
                 }
