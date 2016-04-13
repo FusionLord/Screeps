@@ -1,3 +1,4 @@
+require('spawn');
 var harvester = require('harvest');
 var upgrader = require('upgrader');
 var builder = require('builder');
