@@ -1,3 +1,4 @@
+var harvester = require('harvest');
 module.exports = {
 	run(creep) {
         if(creep.carry.energy == 0) {
