@@ -11,12 +11,10 @@ module.exports = {
     	}
     	else {
     		var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
-    		if(targets.length) {
-    		    if ( creep.build(target[0]) == ERR_NOT_IN_RANGE )
-    		    {
-    			    creep.moveTo(target[0]);
-    		    }
-    		}
+            if ( creep.build(target) == ERR_NOT_IN_RANGE )
+            {
+                creep.moveTo(target);
+            }
     	}
     }
 };
